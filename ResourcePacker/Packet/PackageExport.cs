@@ -23,14 +23,14 @@ namespace ResourcePacker.Packet {
         }
 
         public void ExportFile(string path, IPackageFile packageFile) {
-            //var name = packageFile.Name;
-            //var extension = packageFile.Extension;
+            var name = packageFile.Name;
+            var extension = packageFile.Extension;
 
-            //using (FileStream file = new FileStream($"{path}/{name}.{extension}", FileMode.Create, FileAccess.Write)) {
-            //    using (BinaryWriter writer = new BinaryWriter(file)) {
-            //        writer.Write(packageFile.Bytes);
-            //    }
-            //}
+            using (FileStream file = new FileStream($"{path}/{name}.{extension}", FileMode.Create, FileAccess.Write)) {
+                using (BinaryWriter writer = new BinaryWriter(file)) {
+                    writer.Write(packageFile.Bytes);
+                }
+            }
         }
 
         private void UpdateProgress(string text) {
